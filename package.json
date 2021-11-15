@@ -6,7 +6,7 @@
   "scripts": {
     "start": "yarn migrate-db-apply && yarn start:server",
     "start:server": "node build/index.js",
-    "build": "tsc build",
+    "build": "tsc",
     "dev": "nodemon src/index.ts",
     "migrate-db": "knex --knexfile src/db/knexfile.ts migrate:make -x ts",
     "migrate-db-apply": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile.ts migrate:latest",

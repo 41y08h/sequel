@@ -2,7 +2,7 @@ import { Knex } from "knex";
 
 const config: Knex.Config = {
   client: "postgresql",
-  connection: { uri: process.env.DATABASE_URL, ssl: false },
+  connection: process.env.DATABASE_URL,
   pool: {
     min: 2,
     max: 10,

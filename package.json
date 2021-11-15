@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "knex --knexfile build/src/db/knexfile migrate:latest && yarn start:server",
+    "start": "knex --knexfile build/db/knexfile migrate:latest && yarn start:server",
     "start:server": "node build/index.js",
     "build": "tsc",
     "dev": "nodemon src/index.ts",

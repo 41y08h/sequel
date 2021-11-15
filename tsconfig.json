@@ -9,14 +9,12 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["./src/**/*"]
 }

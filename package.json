@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "yarn migrate-db-apply && yarn start:server",
+    "start:server": "node build/index.js",
+    "build": "tsc build",
     "dev": "nodemon src/index.ts",
     "migrate-db": "knex --knexfile src/db/knexfile.ts migrate:make -x ts",
     "migrate-db-apply": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile.ts migrate:latest",
-    "migrate-db-rollback": "knex --knexfile src/db/knexfile.ts migrate:rollback"
+    "migrate-db-rollback": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile.ts migrate:rollback"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",

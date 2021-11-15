@@ -1,7 +1,7 @@
 import { Knex } from "knex";
 
 const config: Knex.Config = {
-  client: "postgresql",
+  client: "pg",
   connection: process.env.DATABASE_URL,
   pool: {
     min: 2,

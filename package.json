@@ -9,8 +9,8 @@
     "build": "tsc",
     "dev": "nodemon src/index.ts",
     "migrate-db": "knex --knexfile src/db/knexfile.ts migrate:make -x ts",
-    "migrate-db-apply": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile.ts migrate:latest",
-    "migrate-db-rollback": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile.ts migrate:rollback"
+    "migrate-db-apply": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile migrate:latest",
+    "migrate-db-rollback": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile src/db/knexfile migrate:rollback"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",

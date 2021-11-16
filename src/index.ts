@@ -55,6 +55,7 @@ async function main() {
   );
 
   app.use((err, req, res, next) => {
+    console.log("error - ", err.message);
     res.status(400).json({
       error: {
         code: 400,

@@ -4,9 +4,10 @@ const config: Knex.Config = {
   client: "pg",
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+    ssl:
+      process.env.NODE_ENV === "production"
+        ? { rejectUnauthorized: false }
+        : false,
   },
   pool: {
     min: 2,

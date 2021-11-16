@@ -3,6 +3,7 @@ import db from "./db";
 import express from "express";
 import createDebug from "debug";
 import asyncHandler from "express-async-handler";
+import User from "./models/User";
 
 async function main() {
   const app = express();
@@ -13,7 +14,8 @@ async function main() {
   app.get(
     "/users",
     asyncHandler(async (req, res) => {
-      const users = await db.select("*").from("users");
+      const users = await User.query().select("*");
+
       res.json(users);
     })
   );

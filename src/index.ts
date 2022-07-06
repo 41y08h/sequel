@@ -14,8 +14,7 @@ async function main() {
   app.get(
     "/users",
     asyncHandler(async (req, res) => {
-      const users = await User.query().select("*");
-
+      const users = await User.query<{ username: string }>().select();
       res.json(users);
     })
   );
@@ -25,17 +24,17 @@ async function main() {
     asyncHandler(async (req, res) => {
       const { username, password } = req.body;
 
-      const [newUser] = await db("users")
-        .insert({ username, password })
-        .returning("*");
+      const newUser = await User.query().insert({
+        username,
+        password,
+      });
       res.status(201).json(newUser);
     })
   );
-
   app.patch(
-    "/users/:id",
+    "/users/:userId",
     asyncHandler(async (req, res) => {
-      const userId = req.params.id;
+      const { userId } = req.params;
       const { username, password } = req.body;
       const [updatedUser] = await db("users")
         .where({ id: userId })
